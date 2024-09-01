@@ -20,7 +20,7 @@ $(function(){
         data,
         dataType: "json",
         beforeSend: function () {
-          $('.')
+          
         },
       })
         .done((response) => {
