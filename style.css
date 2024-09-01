@@ -13,3 +13,19 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 */
 
 /* Add your custom styles here */
+
+
+#lo-website-results{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 20px;
+}
+
+.lo-website-item img {
+  transition: 0.3s;
+  height: 300px;
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: top center;
+}

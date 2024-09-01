@@ -37,7 +37,7 @@ function hello_elementor_child_scripts_styles() {
 		[
 			'hello-elementor-theme-style',
 		],
-		HELLO_ELEMENTOR_CHILD_VERSION
+		LO_VERSION
 	);
 
   wp_enqueue_script('lo-scripts', get_stylesheet_directory_uri() . '/scripts.js', array('jquery'), LO_VERSION, TRUE);
