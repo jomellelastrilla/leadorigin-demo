@@ -19,7 +19,9 @@ $(function(){
         url: ajax_url,
         data,
         dataType: "json",
-        beforeSend: function () {},
+        beforeSend: function () {
+          $('.')
+        },
       })
         .done((response) => {
           resolve(response);
@@ -34,6 +36,7 @@ $(function(){
   $('#lo-website-filter').on('change', function(){
     const category = $(this).val();
 
+    $('#lo-website-results').empty();
      
     fetchListings(category).then(({success, data}) => {
       if (success) {
