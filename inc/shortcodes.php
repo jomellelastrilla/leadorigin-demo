@@ -22,8 +22,15 @@ function lo_website_listings_function(){
     get_template_part('sections/content' , 'listings-start');
     
       while ( $query->have_posts() ) : $query->the_post();  
+
+      $payload = array(
+        'id'             => '',
+        'title'          => '',
+        'featured_image' => '',
+        'external_link'  => ''
+      );
     
-      get_template_part('sections/content' , 'card');
+      get_template_part('sections/content' , 'card', $payload);
 
     endwhile;
 
