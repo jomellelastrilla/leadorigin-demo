@@ -24,10 +24,11 @@ function lo_website_listings_function(){
       while ( $query->have_posts() ) : $query->the_post();  
 
       $payload = array(
-        'id'             => '',
-        'title'          => '',
-        'featured_image' => '',
-        'external_link'  => ''
+        'id'             => get_the_ID(),
+        'title'          => get_the_title(),        
+        'featured_image' => get_the_post_thumbnail_url(get_the_ID(), 'full'),
+        'site_link'      => get_field('website_url'),
+        'category'       => ''
       );
     
       get_template_part('sections/content' , 'card', $payload);
