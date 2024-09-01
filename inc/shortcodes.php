@@ -29,7 +29,7 @@ function lo_website_listings_function(){
         'title'          => get_the_title(),        
         'featured_image' => get_the_post_thumbnail_url(get_the_ID(), 'full'),
         'site_link'      => get_field('website_url'),
-        'category'       => ''
+        'category'       => lo_get_website_category(get_the_ID())
       );
     
       get_template_part('sections/content' , 'card', $payload);

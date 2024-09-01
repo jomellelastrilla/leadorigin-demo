@@ -1,0 +1,14 @@
+<?php
+
+function lo_get_website_category($post_id) {
+  // Get an array of term IDs associated with the post in the custom taxonomy 'web-category'
+  $term_ids = wp_get_post_terms($post_id, 'web-category', array('fields' => 'ids'));
+
+  if ($term_ids && !is_wp_error($term_ids)) {
+      // Retrieve the name of the first term
+      $term = get_term($term_ids[0], 'web-category');
+      return $term->name;
+  } else {
+      return false; // Return false if no term is found
+  }
+}
