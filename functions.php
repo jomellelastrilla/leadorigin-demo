@@ -19,6 +19,10 @@ define('LO_DIR', get_stylesheet_directory() . '/inc');
 define('LO_VERSION', rand(0,10) . '.' . rand(0,10) . '.' .rand(1,10));
 define('LO_NONCE', 'iy2VWT03w0RefAD1Hrc9wN5W');
 
+require_once LO_DIR .'/general_functions.php';
+require_once LO_DIR .'/actions.php';
+require_once LO_DIR .'/shortcodes.php';
+require_once LO_DIR .'/filters.php';
 
 /**
  * Load child theme scripts & styles.
