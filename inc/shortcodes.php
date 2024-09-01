@@ -8,7 +8,8 @@ function lo_website_listings_function(){
     'post_type'       => 'website-project', 
     'order'           => 'ASC', 
     'orderby'         => 'title',
-    'post_status'     => array('publish')
+    'post_status'     => array('publish'),
+    'posts_per_page'  => -1
   );
 
   $query = new WP_Query($args);
