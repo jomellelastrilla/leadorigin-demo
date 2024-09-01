@@ -18,14 +18,17 @@ function lo_website_listings_function(){
 
   if ( $query->have_posts() ) :
     ob_start(); 
-    get_template_part('sections/content' , 'card');
-    while ( $query->have_posts() ) : $query->the_post();  
-
-   
+    
+    get_template_part('sections/content' , 'listings-start');
+    
+      while ( $query->have_posts() ) : $query->the_post();  
     
       get_template_part('sections/content' , 'card');
 
     endwhile;
+
+    get_template_part('sections/content' , 'listings-end');
+
     wp_reset_postdata();
   endif;
 
