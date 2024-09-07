@@ -4,19 +4,18 @@ $(function(){
 
   function fetchListings(category){
     return new Promise((resolve, reject) => {
-      const { action, nonce, ajax_url }  = LO_DATA;
+    
 
       const data = {
         action: 'lo_website_projects', //name of wordpress action
-        nonce: 'iy2VWT03w0RefAD1Hrc9wN5W', // security token
-        ajax_url: 'https://dev.leadorigin.com/admin-ajax.php',
+        nonce: '12345', // security token
         category
       };
 
 
       $.ajax({
-        type: "POST",
-        url: ajax_url,
+        type: 'POST',
+        url: 'https://dev.leadorigin.com//wp-admin/admin-ajax.php',
         data,
         dataType: "json",
         beforeSend: function () {
@@ -38,11 +37,19 @@ $(function(){
 
     $('#lo-website-results').empty();
      
-    fetchListings(category).then(({success, data}) => {
+    fetchListings(category).then(({ success, data }) => {
       if (success) {
         $('#lo-website-results').html(data);
+      } else{
+        $('#lo-website-results').html('Error: ', data.message);
       }
     })
+    .catch(error => {
+      // Handle the error here
+      console.error('Error fetching listings:', error);
+      // Optionally, display an error message to the user
+      $('#lo-website-results').html('<p>An error occurred while fetching listings.</p>');
+    });
 
   });
 

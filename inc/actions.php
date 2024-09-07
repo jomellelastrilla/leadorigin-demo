@@ -1,19 +1,21 @@
 <?php 
-  function lo_website_projects_function(){
-    if ( !isset( $_POST['nonce'] ) ||  !wp_verify_nonce( $_POST['nonce'], LO_NONCE )		):    
+  function lo_website_projects_function( ){
+
+    if ( !isset( $_POST['nonce'] ) ||  !wp_verify_nonce( $_POST['nonce'], LO_NONCE )		)
+    {
       wp_send_json_error( array(
         'message' => __( 'Invalid request', 'lo' ),
         'type'    => 'invalid',
       ) );
       wp_die();
-    endif;
+    }
 
     $fields = $_POST; 
     
     $args = array();
 
     $args = array(
-      'post_type'       => 'website-projects', 
+      'post_type'       => 'website-project', 
       'order'           => 'ASC', 
       'orderby'         => 'title',
       'post_status'     => array('publish')
@@ -36,7 +38,7 @@
     if ( $query->have_posts() ) :
       ob_start(); 
       
-      get_template_part('sections/content' , 'listings-start');
+      
       
         while ( $query->have_posts() ) : $query->the_post();  
   
@@ -50,17 +52,15 @@
       
         get_template_part('sections/content' , 'card', $payload);
   
-      endwhile;
-  
-      get_template_part('sections/content' , 'listings-end');
+      endwhile; 
   
       $content =  ob_get_clean();
       
     endif;
 
-    wp_send_json_success($content);
+    wp_reset_postdata();    
 
-    wp_reset_postdata();
+    wp_send_json_success($content);
   }
 
   add_action('wp_ajax_lo_website_projects', 'lo_website_projects_function');
