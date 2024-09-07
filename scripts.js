@@ -7,9 +7,9 @@ $(function(){
       const { action, nonce, ajax_url }  = LO_DATA;
 
       const data = {
-        action, //name of wordpress action
-        nonce,
-        ajax_url,
+        action: 'lo_website_projects', //name of wordpress action
+        nonce: 'iy2VWT03w0RefAD1Hrc9wN5W', // security token
+        ajax_url: 'https://dev.leadorigin.com/admin-ajax.php',
         category
       };
 
@@ -40,7 +40,7 @@ $(function(){
      
     fetchListings(category).then(({success, data}) => {
       if (success) {
-
+        $('#lo-website-results').html(data);
       }
     })
 
