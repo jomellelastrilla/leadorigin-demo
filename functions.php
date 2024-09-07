@@ -42,5 +42,7 @@ function hello_elementor_child_scripts_styles() {
 
   wp_enqueue_script('lo-scripts', get_stylesheet_directory_uri() . '/scripts.js', array('jquery'), LO_VERSION, TRUE);
 
+  lo_localize_scripts();
+
 }
 add_action( 'wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20 );

@@ -6,6 +6,8 @@
       wp_send_json_error( array(
         'message' => __( 'Invalid request', 'lo' ),
         'type'    => 'invalid',
+        'verify'  => !wp_verify_nonce( $_POST['nonce'], LO_NONCE ),
+        'post'    => $_POST
       ) );
       wp_die();
     }
@@ -37,8 +39,6 @@
 
     if ( $query->have_posts() ) :
       ob_start(); 
-      
-      
       
         while ( $query->have_posts() ) : $query->the_post();  
   
