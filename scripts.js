@@ -6,9 +6,11 @@ $(function(){
     return new Promise((resolve, reject) => {
     
 
+      const { nonce } = LO_DATA;
+
       const data = {
         action: 'lo_website_projects', //name of wordpress action
-        nonce: '12345', // security token
+        nonce, // security token
         category
       };
 
