@@ -6,7 +6,7 @@ $(function(){
     return new Promise((resolve, reject) => {
     
 
-      const { nonce } = LO_DATA;
+      const { nonce, ajax_url } = LO_DATA;
 
       const data = {
         action: 'lo_website_projects', //name of wordpress action
@@ -17,7 +17,7 @@ $(function(){
 
       $.ajax({
         type: 'POST',
-        url: 'https://dev.leadorigin.com//wp-admin/admin-ajax.php',
+        url: ajax_url,
         data,
         dataType: "json",
         beforeSend: function () {

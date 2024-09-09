@@ -2,7 +2,8 @@
 
 function lo_localize_scripts() {
   $args =  array(
-    'nonce'         => wp_create_nonce(LO_NONCE)
+    'nonce'         => wp_create_nonce(LO_NONCE),
+    'ajax_url'      => admin_url('admin-ajax.php')
   );
 
   wp_localize_script('lo-scripts','LO_DATA', $args);    

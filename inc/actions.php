@@ -1,12 +1,11 @@
 <?php 
-  function lo_website_projects_function( ){
+  function lo_website_projects_function(){
 
     if ( !isset( $_POST['nonce'] ) ||  !wp_verify_nonce( $_POST['nonce'], LO_NONCE )		)
     {
       wp_send_json_error( array(
         'message' => __( 'Invalid request', 'lo' ),
         'type'    => 'invalid',
-        'verify'  => !wp_verify_nonce( $_POST['nonce'], LO_NONCE ),
         'post'    => $_POST
       ) );
       wp_die();

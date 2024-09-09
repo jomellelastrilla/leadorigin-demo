@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.0' );
 define('LO_DIR', get_stylesheet_directory() . '/inc');
 define('LO_VERSION', rand(0,10) . '.' . rand(0,10) . '.' .rand(1,10));
-define('LO_NONCE', '12345');
+define('LO_NONCE', '01xPwQ3dafvs');
 
 require_once LO_DIR .'/general_functions.php';
 require_once LO_DIR .'/actions.php';
